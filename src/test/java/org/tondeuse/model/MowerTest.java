@@ -35,4 +35,30 @@ public class MowerTest {
         assertEquals(3, mower.getX());
     }
 
+    /**
+     * Test the forward movement of a mower when facing West (within the lawn's boundaries).
+     */
+    @Test
+    void testMoveForwardFromWestOrientationWithinLawn() {
+        Lawn lawn = new Lawn(4, 4);
+        Mower mower = new Mower(2, 1, lawn, Orientation.W);
+        mower.moveForward();
+        // After the move the x-coordinate should decrease by 1 and the y-coordinate should remain unchanged.
+        assertEquals(1, mower.getY());
+        assertEquals(1, mower.getX());
+    }
+
+    /**
+     * Test the forward movement of a mower when facing West (outside the lawn's boundaries).
+     */
+    @Test
+    void testMoveForwardFromWestOrientationOutsideLawn() {
+        Lawn lawn = new Lawn(4, 4);
+        Mower mower = new Mower(0, 2, lawn, Orientation.W);
+        mower.moveForward();
+        // After the move the x-coordinates shouldn't change because it will be outside the lawn.
+        assertEquals(2, mower.getY());
+        assertEquals(0, mower.getX());
+    }
+
 }
