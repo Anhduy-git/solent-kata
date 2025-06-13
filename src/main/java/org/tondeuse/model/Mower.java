@@ -39,11 +39,29 @@ public class Mower {
         }
     }
 
+    /**
+     * Update the current orientation of the mower by turning it to the left
+     */
+    public void turnLeft() {
+        this.orientation = this.orientation.turnLeft();
+    }
+
+    /**
+     * Update the current orientation of the mower by turning it to the right
+     */
+    public void turnRight() {
+        this.orientation = this.orientation.turnRight();
+    }
+
     public int getX() {
         return x;
     }
 
     public int getY() {
         return y;
+    }
+
+    public Orientation getOrientation() {
+        return orientation;
     }
 }
