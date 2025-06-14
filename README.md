@@ -41,13 +41,6 @@ et son orientation.
 
 ---
 
-## 🛠 Requirements
-
-- **Java version**: 21
-- **Build tool**: Maven
-
----
-
 ## 🚀 How to Run the Program
 
 1. **Clone the repository**:
