@@ -14,22 +14,22 @@ public class OrientationTest {
     // -------------------------------------
 
     @Test
-    void testTurnRightFromNorth() {
+    void testTurnRight_fromNorth_shouldFaceEast() {
         assertEquals(Orientation.E, Orientation.N.turnRight());
     }
 
     @Test
-    void testTurnRightFromEast() {
+    void testTurnRight_fromEast_shouldFaceSouth() {
         assertEquals(Orientation.S, Orientation.E.turnRight());
     }
 
     @Test
-    void testTurnRightFromSouth() {
+    void testTurnRight_fromSouth_shouldFaceWest() {
         assertEquals(Orientation.W, Orientation.S.turnRight());
     }
 
     @Test
-    void testTurnRightFromWest() {
+    void testTurnRight_fromWest_shouldFaceNorth() {
         assertEquals(Orientation.N, Orientation.W.turnRight());
     }
 
@@ -39,22 +39,22 @@ public class OrientationTest {
     // -------------------------------------
 
     @Test
-    void testTurnLeftFromNorth() {
+    void testTurnLeft_fromNorth_shouldFaceWest() {
         assertEquals(Orientation.W, Orientation.N.turnLeft());
     }
 
     @Test
-    void testTurnLeftFromEast() {
+    void testTurnLeft_fromEast_shouldFaceNorth() {
         assertEquals(Orientation.N, Orientation.E.turnLeft());
     }
 
     @Test
-    void testTurnLeftFromSouth() {
+    void testTurnLeft_fromSouth_shouldFaceEast() {
         assertEquals(Orientation.E, Orientation.S.turnLeft());
     }
 
     @Test
-    void testTurnLeftFromWest() {
+    void testTurnLeft_fromWest_shouldFaceSouth() {
         assertEquals(Orientation.S, Orientation.W.turnLeft());
     }
 }

@@ -13,7 +13,7 @@ public class MowerTest {
      * Test the forward movement of a mower when facing North (within the lawn's boundaries).
      */
     @Test
-    void testMoveForwardFromNorthOrientationWithinLawn() {
+    void testMoveForward_fromNorthOrientationWithinLawn_shouldMove() {
         Lawn lawn = new Lawn(4, 4);
         Mower mower = new Mower(2, 1, lawn, Orientation.N);
         mower.moveForward();
@@ -26,7 +26,7 @@ public class MowerTest {
      * Test the forward movement of a mower when facing North (outside the lawn's boundaries).
      */
     @Test
-    void testMoveForwardFromNorthOrientationOutsideLawn() {
+    void testMoveForward_fromNorthOrientationOutsideLawn_shouldNotMove() {
         Lawn lawn = new Lawn(4, 4);
         Mower mower = new Mower(3, 4, lawn, Orientation.N);
         mower.moveForward();
@@ -39,7 +39,7 @@ public class MowerTest {
      * Test the forward movement of a mower when facing West (within the lawn's boundaries).
      */
     @Test
-    void testMoveForwardFromWestOrientationWithinLawn() {
+    void testMoveForward_fromWestOrientationWithinLawn_shouldMove() {
         Lawn lawn = new Lawn(4, 4);
         Mower mower = new Mower(2, 1, lawn, Orientation.W);
         mower.moveForward();
@@ -52,7 +52,7 @@ public class MowerTest {
      * Test the forward movement of a mower when facing West (outside the lawn's boundaries).
      */
     @Test
-    void testMoveForwardFromWestOrientationOutsideLawn() {
+    void testMoveForward_fromWestOrientationOutsideLawn_shouldNotMove() {
         Lawn lawn = new Lawn(4, 4);
         Mower mower = new Mower(0, 2, lawn, Orientation.W);
         mower.moveForward();

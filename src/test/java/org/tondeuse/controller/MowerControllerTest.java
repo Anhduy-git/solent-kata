@@ -31,7 +31,7 @@ public class MowerControllerTest {
      * Test when the mower controller receive the turn right instruction - D
      */
     @Test
-    void testHandleInstructionTurnRight() {
+    void testHandleInstruction_D_shouldTurnRight() {
         mowerController.handleInstruction(mower, 'D');
         verify(mower).turnRight();
     }
@@ -40,7 +40,7 @@ public class MowerControllerTest {
      * Test when the mower controller receive the turn left instruction - G
      */
     @Test
-    void testHandleInstructionTurnLeft() {
+    void testHandleInstruction_G_shouldTurnLeft() {
         mowerController.handleInstruction(mower, 'G');
         verify(mower).turnLeft();
     }
@@ -49,7 +49,7 @@ public class MowerControllerTest {
      * Test when the mower controller receive the move forward instruction - A
      */
     @Test
-    void testHandleInstructionMoveForward() {
+    void testHandleInstruction_A_shouldMoveForward() {
         mowerController.handleInstruction(mower, 'A');
         verify(mower).moveForward();
     }
@@ -59,7 +59,7 @@ public class MowerControllerTest {
      * It should print the correct message "The instruction " + instruction + " is invalid !"
      */
     @Test
-    void testHandleInvalidInstruction() {
+    void testHandleInvalidInstruction_shouldThrowsException() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> mowerController.handleInstruction(mower, 'K'));
         assertEquals("The instruction K is invalid !", exception.getMessage());
