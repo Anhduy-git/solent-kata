@@ -61,7 +61,8 @@ public class Mower {
         return y;
     }
 
-    public Orientation getOrientation() {
-        return orientation;
+    @Override
+    public String toString() {
+        return x + " " + y + " " + orientation;
     }
 }
