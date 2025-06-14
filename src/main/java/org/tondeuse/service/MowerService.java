@@ -1,11 +1,11 @@
-package org.tondeuse.controller;
+package org.tondeuse.service;
 
 import org.tondeuse.model.Mower;
 
 /**
  * Handle the execution of movement instructions for a Mower
  */
-public class MowerController {
+public class MowerService {
 
     /**
      * Executes an instruction on the mower.

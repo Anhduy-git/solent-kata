@@ -1,4 +1,4 @@
-package org.tondeuse.controller;
+package org.tondeuse.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,12 +11,12 @@ import static org.mockito.Mockito.*;
 /**
  * Unit tests for the MowerController class
  */
-public class MowerControllerTest {
+public class MowerServiceTest {
 
     // Mock object mower
     private Mower mower;
 
-    private MowerController mowerController;
+    private MowerService mowerService;
 
     /**
      * Setups before each test so we don't need to repeat this code everytime
@@ -24,7 +24,7 @@ public class MowerControllerTest {
     @BeforeEach
     void setup() {
         mower = mock(Mower.class);
-        mowerController = new MowerController();
+        mowerService = new MowerService();
     }
 
     /**
@@ -32,7 +32,7 @@ public class MowerControllerTest {
      */
     @Test
     void testHandleInstruction_D_shouldTurnRight() {
-        mowerController.handleInstruction(mower, 'D');
+        mowerService.handleInstruction(mower, 'D');
         verify(mower).turnRight();
     }
 
@@ -41,7 +41,7 @@ public class MowerControllerTest {
      */
     @Test
     void testHandleInstruction_G_shouldTurnLeft() {
-        mowerController.handleInstruction(mower, 'G');
+        mowerService.handleInstruction(mower, 'G');
         verify(mower).turnLeft();
     }
 
@@ -50,7 +50,7 @@ public class MowerControllerTest {
      */
     @Test
     void testHandleInstruction_A_shouldMoveForward() {
-        mowerController.handleInstruction(mower, 'A');
+        mowerService.handleInstruction(mower, 'A');
         verify(mower).moveForward();
     }
 
@@ -61,7 +61,7 @@ public class MowerControllerTest {
     @Test
     void testHandleInvalidInstruction_shouldThrowsException() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> mowerController.handleInstruction(mower, 'K'));
+                () -> mowerService.handleInstruction(mower, 'K'));
         assertEquals("The instruction K is invalid !", exception.getMessage());
     }
 }
