@@ -24,7 +24,14 @@ public class MowerSimulationRunner {
     public void run(String inputFileName) {
         try {
             // Load file
-            Path path = Paths.get(ClassLoader.getSystemResource(inputFileName).toURI());
+            var intputFileUrl = getClass().getClassLoader().getResource(inputFileName);
+            if (intputFileUrl == null) {
+                throw new RuntimeException("The file cannot be found : " + inputFileName);
+            }
+
+            Path path = Paths.get(intputFileUrl.toURI());
+
+            // Read lines in the input file
             List<String> lines = FileUtils.readLinesInFile(path.toString());
 
             // Read the boundaries of the lawn in file
