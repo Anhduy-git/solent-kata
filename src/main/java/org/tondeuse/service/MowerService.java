@@ -1,26 +1,39 @@
 package org.tondeuse.service;
 
 import org.tondeuse.model.Mower;
+import org.tondeuse.service.strategy.InstructionStrategy;
+import org.tondeuse.service.strategy.MoveForwardInstruction;
+import org.tondeuse.service.strategy.TurnLeftInstruction;
+import org.tondeuse.service.strategy.TurnRightInstruction;
+
+import java.util.Map;
 
 /**
- * Handle the execution of movement instructions for a Mower
+ * Handle the logic of execution of movement instructions for a Mower
  */
 public class MowerService {
 
     /**
+     * Map each character to an instruction
+     */
+    private final Map<Character, InstructionStrategy> instructionsMap = Map.of(
+            'G', new TurnLeftInstruction(),
+            'D', new TurnRightInstruction(),
+            'A', new MoveForwardInstruction()
+    );
+
+    /**
      * Executes an instruction on the mower.
-     * D : turn right, G : turn left, A : move forward
      *
      * @param mower       the current mower
-     * @param instruction the instruction to apply
-     * @throws IllegalArgumentException if the instruction is invalid
+     * @param instruction the instruction to be executed
      */
     public void handleInstruction(Mower mower, char instruction) {
-        switch (instruction) {
-            case 'D' -> mower.turnRight();
-            case 'G' -> mower.turnLeft();
-            case 'A' -> mower.moveForward();
-            default -> throw new IllegalArgumentException("The instruction " + instruction + " is invalid !");
+        // Get the strategy corresponding to the current instruction
+        InstructionStrategy strategy = instructionsMap.get(instruction);
+        if (strategy == null) {
+            throw new IllegalArgumentException("Invalid instruction: " + instruction);
         }
+        strategy.execute(mower);
     }
 }
