@@ -32,7 +32,7 @@ public class MowerService {
         // Get the strategy corresponding to the current instruction
         InstructionStrategy strategy = instructionsMap.get(instruction);
         if (strategy == null) {
-            throw new IllegalArgumentException("Invalid instruction: " + instruction);
+            throw new IllegalArgumentException("The instruction " + instruction + " is invalid !");
         }
         strategy.execute(mower);
     }

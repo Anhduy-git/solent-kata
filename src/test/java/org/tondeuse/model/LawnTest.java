@@ -29,7 +29,7 @@ public class LawnTest {
     @Test
     void testIsOutsideLawn() {
         Lawn lawn = new Lawn(3, 3);
-        // Suppose that we have an object with coordinates x = 2,  y = 1
+        // Suppose that we have an object with coordinates x = 4,  y = 1
         int objectX = 4;
         int objectY = 1;
         // This object should be outside the lawn
